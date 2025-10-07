@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+<h1>Информация о пользователе</h1>
+
+<div>
+    <ul>
+        <li>
+            <strong>Имя:</strong> <span th:text="${user.name}">Name</span><br>
+            <strong>Пол:</strong> <span th:text="${user.gender}">Gender</span><br>
+            <strong>Возраст:</strong> <span th:text="${user.age}">Age</span><br>
+            <hr>
+        </li>
+    </ul>
+</div>
+<div>
+    <form th:action="@{/users/update}" method="get">
+        <input type="hidden" th:field="${user.id}" />
+        <button type="submit">Изменить</button>
+    </form>
+</div>
+<div>
+    <form th:action="@{/users/delete}" method="post">
+        <input type="hidden" th:field="${user.id}" />
+        <button type="submit">Удалить</button>
+    </form>
+</div>
+<div>
+    <form th:action="@{/users}" method="get">
+        <button type="submit">Все пользователи</button>
+    </form>
+</div>
+</body>
+</html>
