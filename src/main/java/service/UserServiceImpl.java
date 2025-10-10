@@ -1,12 +1,12 @@
-package hiber.service;
-
-import hiber.dao.UserDao;
-import hiber.model.User;
+package service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
+import dao.UserDao;
+import model.User;
 
 @Service
 @Transactional
@@ -19,28 +19,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void add(User user) {
-        userDao.add(user);
+    public void creatUser(User user) {
+        userDao.createUser(user);
     }
 
     @Override
-    public void update(User user) {
-        userDao.update(user);
+    public void updateUser(User user) {
+        userDao.updateUsers(user);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> getAllUser() {
-        return userDao.getAllUser();
+    public List<User> findAllUser() {
+        return userDao.findAllUsers();
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userDao.getUserById(id);
+    public User findUserById(Long id) {
+        return userDao.findUserById(id);
     }
 
     @Override
-    public void delete(Long id) {
-        userDao.delete(id);
+    public void deleteUser(Long id) {
+        userDao.deleteUser(id);
     }
 }
