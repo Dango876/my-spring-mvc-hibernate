@@ -29,7 +29,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAllUsers() {
-//        String jpql = GET_ALL_USER_QUERY;
         return entityManager.createQuery(GET_ALL_USER_QUERY, User.class).getResultList();
     }
 

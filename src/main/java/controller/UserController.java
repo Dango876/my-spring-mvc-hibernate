@@ -75,11 +75,7 @@ public class UserController {
 
     @PostMapping("/save")
     public String handleSaveUser(@ModelAttribute("user") User user) {
-        if (user.getId() == null) {
-            userService.creatUser(user);
-        } else {
-            userService.updateUser(user);
-        }
+        userService.creatUser(user);
         return "redirect:/users";
     }
 
