@@ -67,17 +67,13 @@ public class UserController {
     @PostMapping("/update")
     public String handleUpdateUser(@ModelAttribute("user") User user) {
         if (user.getId() == null) {
-            return "userNotFoud";
+            return "userNotFound";
         }
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-    @PostMapping("/save")
-    public String handleSaveUser(@ModelAttribute("user") User user) {
-        userService.creatUser(user);
-        return "redirect:/users";
-    }
+
 
     @PostMapping("/delete")
     public String handleDeleteUser(@RequestParam("id") Long id) {

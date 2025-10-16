@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1 th:text="${user.id == null} ? 'Создание пользователя' : 'Редактирование пользователя'"></h1>
-<form th:action="@{/users/save}" method="post" th:object="${user}">
-    <input type="hidden" th:field="${user.id}" />
-
+<form th:action="${user.id == null} ? @{/users/create} : @{/users/update}"
+      method="post" th:object="${user}">
+    <input type="hidden" th:field="*{id}" />
     <div>
         <label for="name">Имя:</label>
         <input type="text" id="name" th:field="${user.name}" required/>
